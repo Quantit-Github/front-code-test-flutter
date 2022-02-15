@@ -3,7 +3,7 @@
 ## 기본 제공 자료
 - [Design(figma)](https://www.figma.com/file/nHHBjLBI84n9LphcD7GZn9/Code-Test?node-id=7%3A1779)
 - [API document](https://documenter.getpostman.com/view/16075277/UVeGs6cs)
-- [API Endpoint(temp)](https://366d-59-6-230-229.ngrok.io)
+- [API Endpoint(temp)](https://4717-59-6-230-229.ngrok.io)
 
 ## 참고사항
 1. Chrome 개발 진행 해 주시면 됩니다.
