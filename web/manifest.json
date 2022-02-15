@@ -1,6 +1,6 @@
 {
-    "name": "weather",
-    "short_name": "weather",
+    "name": "todobooks",
+    "short_name": "todobooks",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

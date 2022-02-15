@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:todobooks/color.dart';
 import 'package:todobooks/components/appbar.dart';
 
@@ -45,6 +46,11 @@ class _HomePageState extends State<HomePage> {
         titleWidget: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            SvgPicture.asset(
+              "assets/logo.svg",
+              height: 40,
+              fit: BoxFit.fitHeight,
+            ),
             Container(
               margin: const EdgeInsets.only(left: 10),
               child: Text(
@@ -62,7 +68,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: CustomScrollView(
         controller: _scroll,
-        slivers: const [],
+        slivers: [],
       ),
     );
   }

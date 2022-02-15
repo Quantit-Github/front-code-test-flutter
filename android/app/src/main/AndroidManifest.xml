@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.weather">
+    package="quantit.front.test">
    <application
-        android:label="weather"
+        android:label="todobooks"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
