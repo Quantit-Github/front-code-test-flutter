@@ -31,6 +31,9 @@ class LoginPanel extends StatefulWidget {
 }
 
 class _LoginPanelState extends State<LoginPanel> {
+  /// TODO 1. Login Page 구현
+  /// 로그인 이후에 token, refresh, username을 PrefsManager 를 사용해서 저장합니다.
+  /// 이후 저장이 완료되면 /main 라우트로 replacepush 합니다.
   @override
   Widget build(BuildContext context) {
     return Column(

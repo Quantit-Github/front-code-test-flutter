@@ -66,6 +66,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         preferredSize: const Size.fromHeight(54),
       ),
+      // TODO 4 Main 페이지 구현
       body: CustomScrollView(
         controller: _scroll,
         slivers: [],

@@ -14,6 +14,8 @@
 
 ## 목표
 0. 데이터 상태 관리 진행
-1. 로그인 페이지 디자인 및 로그인 기능 구현 - token, username, refresh 저장 및 API Header 쿼리 하기
-2. Main 페이지 구현 - 각 최신 5개만 가져오기, ... 누를시 각 페이지로 라우팅, Task Row 구현
-3. Tasks 페이지 구현 - Task 리스트 구현, 페이지네이션, Task check, Task
+1. 로그인 페이지 디자인 및 로그인 기능 구현 - token, username, refresh 저장 PrefsManager 사용
+2. Splash에서 토큰 유무에 따른 자동 로그인 구현
+3. 로그아웃 기능 구현
+4. Main 페이지 구현 - 각 최신 5개만 가져오기, ... 누를시 각 페이지로 라우팅, Task Row 구현
+5. Tasks 페이지 구현 - Task 리스트 구현, 페이지네이션, Task check, Task
