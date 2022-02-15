@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: CustomScrollView(
         controller: _scroll,
-        slivers: [],
+        slivers: const [],
       ),
     );
   }
