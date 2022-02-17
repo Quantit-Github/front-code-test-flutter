@@ -21,7 +21,7 @@ class ApiHandler {
 
   Future<Map<String, String>> get headers async {
     String? token = await PrefsManager.readData('token');
-
+    print(token);
     if (token != null) {
       return {...baseHeaders, 'Authorization': 'JWT $token'};
     } else {

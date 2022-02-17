@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todobooks/config/api.dart';
+import 'package:todobooks/config/storage_manager.dart';
 import 'package:todobooks/container/home/empty.dart';
 import 'package:todobooks/model/task.dart';
 
@@ -22,7 +23,7 @@ class _HomePageBodyState extends State<HomePageBody> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       try {
         await getSummery();
       } catch (e) {
@@ -53,8 +54,29 @@ class _HomePageBodyState extends State<HomePageBody> {
             scroll: widget.scroll,
           );
         } else {
-          // TODO 2. Task Section 구현
-          return Container();
+          return Container(
+            child: ListView.builder(
+                itemCount: _active.value.length,
+                itemBuilder: (BuildContext context, index) {
+                  return Container(
+                      child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            color: _active.value[index].category.color,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text("${_active.value[index].category.name}"),
+                        ],
+                      )
+                    ],
+                  ));
+                }),
+          );
         }
       },
     );
