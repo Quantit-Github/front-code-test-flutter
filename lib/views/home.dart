@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:todobooks/color.dart';
-import 'package:todobooks/components/appbar.dart';
+import 'package:todobooks/components/app_bar.dart';
+import 'package:todobooks/config/routes.dart';
+import 'package:todobooks/config/storage_manager.dart';
+import 'package:todobooks/container/home/body.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,7 +28,6 @@ class _HomePageState extends State<HomePage> {
   void _elevationListner() {
     final elevation = !(_scroll.offset <= _scroll.position.minScrollExtent &&
         !_scroll.position.outOfRange);
-    debugPrint(elevation.toString());
     _elevation.value = elevation;
   }
 
@@ -39,6 +40,11 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  logout() async {
+    await PrefsManager.logout();
+    Navigator.of(context).pushNamed(RouteEnum.login.path);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +52,6 @@ class _HomePageState extends State<HomePage> {
         titleWidget: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgPicture.asset(
-              "assets/logo.svg",
-              height: 40,
-              fit: BoxFit.fitHeight,
-            ),
             Container(
               margin: const EdgeInsets.only(left: 10),
               child: Text(
@@ -65,12 +66,26 @@ class _HomePageState extends State<HomePage> {
         elevation: _elevation,
         backgroundColor: Colors.white,
         preferredSize: const Size.fromHeight(54),
+        actions: [
+          TextButton(
+            onPressed: logout,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              decoration: BoxDecoration(
+                  border: Border.all(color: ColorMap().primary),
+                  borderRadius: BorderRadius.circular(5)),
+              child: const Text(
+                "Logout",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
-      // TODO 4 Main 페이지 구현
-      body: CustomScrollView(
-        controller: _scroll,
-        slivers: [],
-      ),
+      body: HomePageBody(scroll: _scroll),
     );
   }
 }

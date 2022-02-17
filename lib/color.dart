@@ -10,6 +10,7 @@ class ColorMap {
   }
   static final ColorMap _instance = ColorMap._internal();
   static const int _primaryValue = 0xFF29A19C;
+
   static const MaterialColor _primaryScale = MaterialColor(
     _primaryValue,
     <int, Color>{
@@ -25,6 +26,9 @@ class ColorMap {
       900: Color(0xFF06605C),
     },
   );
+
+  Color get black => const Color.fromRGBO(40, 40, 70, 1);
+  Color get gray => const Color.fromRGBO(206, 206, 206, 1);
 
   MaterialColor get primary => _primaryScale;
 }

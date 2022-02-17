@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:todobooks/color.dart';
+import 'package:todobooks/config/api.dart';
 import 'package:todobooks/config/routes.dart';
 import 'package:todobooks/config/storage_manager.dart';
 
@@ -25,22 +26,36 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   login() async {
-    /// TODO 2. 자동 로그인 구현
-    /// 토큰 X -> Login Page
-    /// 토큰 O -> 토큰 유효성 검사 진행
-    ///
-    /// 토큰 유효 O -> /main 으로 라우팅
-    /// 토큰 유효 X -> refresh를 이용한 토큰 재발급 진행
-    ///
-    /// refresh를 이용한 토큰 재발급 성공 -> 토큰 저장 후 /main 으로 라우팅
-    /// refresh를 이용한 토큰 재발급 실패 -> "인증 실패로 로그인 페이지로 이동합니다." Alert 진행후 로그인 페이지 라우팅
-
     String? _token = await PrefsManager.readData("token");
     if (_token != null) {
-      debugPrint("login");
+      try {
+        await ApiHandler().post('/api/token/verify', {"token": _token});
+        Navigator.of(context).pushNamed(RouteEnum.main.path);
+      } catch (e) {
+        String? _refresh = await PrefsManager.readData("refresh");
+        if (_refresh != null) {
+          try {
+            Map<String, dynamic> data = await ApiHandler().post(
+              '/api/token/refresh',
+              {"refresh": _refresh},
+            );
+            PrefsManager.saveData("token", data["access"]);
+            Navigator.of(context).pushNamed(RouteEnum.main.path);
+          } catch (e) {
+            await goLoginPage();
+          }
+        } else {
+          await goLoginPage();
+        }
+      }
     } else {
-      Navigator.of(context).pushNamed(RouteEnum.login.path);
+      await goLoginPage();
     }
+  }
+
+  Future<void> goLoginPage() async {
+    await PrefsManager.logout();
+    Navigator.of(context).pushNamed(RouteEnum.login.path);
   }
 
   @override
