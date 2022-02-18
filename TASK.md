@@ -3,10 +3,11 @@
 ## 기본 제공 자료
 - [Design(figma)](https://www.figma.com/file/nHHBjLBI84n9LphcD7GZn9/Code-Test?node-id=7%3A1779)
 - [API document](https://documenter.getpostman.com/view/16075277/UVeGs6cs)
-- [API Endpoint(temp)](https://317a-59-6-230-229.ngrok.io)
+- [API Endpoint(temp)](https://a613-59-6-230-229.ngrok.io)
+- [Demo](https://flutter.code-test.quantit.io)
 
 ## 참고사항
-1. Chrome 개발 진행 해 주시면 됩니다.
+1. Chrome 개발 진행도 가능 합니다.
 2. 라이브러리 추가 사용 가능합니다. 다만 Permissive한지 확인 해주시면 좋습니다.
 3. 로그인 ID: admin, PWD: quantit4321 입니다.
 4. .env 파일 활용해서 API endpoint 사용하시면 됩니다.
