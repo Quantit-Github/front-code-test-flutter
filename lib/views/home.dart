@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     if (_scroll.position.atEdge) {
       if (_scroll.position.pixels == 0) {
       } else {
-        debugPrint("bottom hiit");
+        debugPrint("bottom hit");
       }
     }
   }
