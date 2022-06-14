@@ -3,7 +3,7 @@
 ## 기본 제공 자료
 - [Design(figma)](https://www.figma.com/file/nHHBjLBI84n9LphcD7GZn9/Code-Test?node-id=7%3A1779)
 - [API document](https://documenter.getpostman.com/view/16075277/UVeGs6cs)
-- [API Endpoint(temp)](https://7ee3-59-6-230-229.ngrok.io)
+- [API Endpoint(temp)](https://f73d-61-73-25-27.ngrok.io)
 - [Demo](https://flutter.code-test.quantit.io)
 
 ## 참고사항
