@@ -22,7 +22,7 @@ class _HomePageBodyState extends State<HomePageBody> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       try {
         await getSummery();
       } catch (e) {

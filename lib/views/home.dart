@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _scroll.addListener(_elevationListner);
       _scroll.addListener(_scrollListener);
     });
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     if (_scroll.position.atEdge) {
       if (_scroll.position.pixels == 0) {
       } else {
-        debugPrint("bottom hiit");
+        debugPrint("bottom hit");
       }
     }
   }
