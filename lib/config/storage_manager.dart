@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefsManager {
-  static void saveData(String key, dynamic value) async {
+
+
+  static Future<void> saveData(String key, dynamic value) async {
     final prefs = await SharedPreferences.getInstance();
     if (value is int) {
       await prefs.setInt(key, value);

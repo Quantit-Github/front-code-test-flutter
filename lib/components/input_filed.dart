@@ -6,11 +6,13 @@ class TextInputField extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final TextEditingController controller;
   final String? hintText;
+  final Function(String text) onChanged;
   final ValueNotifier<bool> isError;
   final String? errorMassage;
   final bool obscureText;
   const TextInputField({
     Key? key,
+    required this.onChanged,
     this.margin,
     this.padding,
     required this.controller,
@@ -28,6 +30,7 @@ class TextInputField extends StatelessWidget {
       margin: _margin,
       padding: padding,
       child: TextFormField(
+        onChanged: onChanged,
         controller: controller,
         obscureText: obscureText,
         validator: (value) {

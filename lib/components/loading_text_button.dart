@@ -62,8 +62,7 @@ class _LoadingTextButtonState extends State<LoadingTextButton> {
     return TextButton(
       onPressed: _onPressed(),
       style: TextButton.styleFrom(
-        backgroundColor:
-            _isLoading ? ColorMap().primary.withOpacity(0.3) : _backgroundColor,
+        backgroundColor: _isLoading ? ColorMap().primary.withOpacity(0.3) : _backgroundColor,
       ),
       child: Container(
         padding: widget.childPadding,
