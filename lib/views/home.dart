@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       _scroll.addListener(_elevationListner);
       _scroll.addListener(_scrollListener);
     });

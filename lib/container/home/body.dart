@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todobooks/components/common_widgets.dart';
 import 'package:todobooks/config/api.dart';
 import 'package:todobooks/container/home/empty.dart';
+import 'package:todobooks/global/strings.dart';
 import 'package:todobooks/model/task.dart';
 
 class HomePageBody extends StatefulWidget {
@@ -22,7 +24,7 @@ class _HomePageBodyState extends State<HomePageBody> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
       try {
         await getSummery();
       } catch (e) {
@@ -54,7 +56,20 @@ class _HomePageBodyState extends State<HomePageBody> {
           );
         } else {
           // TODO 2. Task Section 구현
-          return Container();
+          return Container(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    CommonWidgets.taskListWithTitle(
+                        listTitle: GlobalString.activeTasks,
+                        taskNameList: _active.value),
+                    CommonWidgets.taskListWithTitle(
+                        listTitle: GlobalString.completedTasks,
+                        taskNameList: _done.value)
+                  ],
+                )
+              )
+          );
         }
       },
     );
