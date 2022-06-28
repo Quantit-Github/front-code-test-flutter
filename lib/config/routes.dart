@@ -33,6 +33,8 @@ extension RouteEnumExtention on RouteEnum {
         return const SplashPage();
       case RouteEnum.login:
         return const LoginPage();
+      // case RouteEnum.login:
+      //   return const HomePage(); // thought so. Doesn't work since there's no token issued yet.
       case RouteEnum.main:
         return const HomePage();
       case RouteEnum.active:

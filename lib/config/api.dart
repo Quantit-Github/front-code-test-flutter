@@ -38,8 +38,11 @@ class ApiHandler {
     );
 
     if (resp.statusCode == 200) {
+      debugPrint("The response was okay.");
       return json.decode(resp.body);
     } else {
+      debugPrint("The response was NOT okay.");
+      debugPrint(resp.reasonPhrase);
       throw Exception(resp.body.toString());
     }
   }
